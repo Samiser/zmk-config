@@ -44,10 +44,10 @@
 
         right {
             bindings = <
-&none          &kp AT       &kp QUESTION   &kp EXCLAMATION  &none            &kp PAGE_UP     &kp CARET      &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &kp HOME
-&kp BACKSPACE  &kp PERCENT  &kp HASH       &kp DOLLAR       &none            &kp LEFT_ARROW  &kp DOWN       &kp UP_ARROW      &kp RIGHT          &kp COLON
-&kp DEL        &caps_word   &kp LC(LS(C))  &none            &kp LC(LS(V))    &kp PAGE_DOWN   &kp AMPERSAND  &kp STAR          &kp SEMICOLON      &kp END
-&mo 4          &none                                                                                                          &none              &mo 2
+&none          &kp AT       &kp QUESTION   &kp EXCLAMATION  &none            &kp PAGE_UP    &kp CARET      &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &kp HOME
+&kp BACKSPACE  &kp PERCENT  &kp HASH       &kp DOLLAR       &none            &kp LEFT       &kp DOWN       &kp UP            &kp RIGHT          &kp COLON
+&kp DEL        &caps_word   &kp LC(LS(C))  &none            &kp LC(LS(V))    &kp PAGE_DOWN  &kp AMPERSAND  &kp STAR          &kp SEMICOLON      &kp END
+&mo 4          &none                                                                                                         &none              &mo 2
             >;
         };
 
