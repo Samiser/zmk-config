@@ -15,11 +15,13 @@ jobs:
 
       - name: Install executable
         run: |
-          curl -sL https://raw.githubusercontent.com/MrMarble/zmk-viewer/master/scripts/install.sh | sudo -E bash -
+          wget https://github.com/MrMarble/zmk-viewer/releases/download/v2.0.0/zmk-viewer-2.0.0-linux-amd64.tar.gz
+          tar -xzvf zmk-viewer-2.0.0-linux-amd64.tar.gz
+          mv zmk-viewer-2.0.0-linux-amd64/zmk-viewer-v2.0.0-linux-amd64 /tmp/zmk-viewer
 
       - name: Run the executable to generate an image
         run: |
-          /usr/local/bin/zmk-viewer generate -f ./config/splitkb_aurora_sweep.keymap ferris/sweep --single
+          /tmp/zmk-viewer generate -f ./config/splitkb_aurora_sweep.keymap ferris/sweep --single
 
       - name: Check if the image has changed
         run: |
