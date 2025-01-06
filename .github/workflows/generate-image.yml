@@ -33,16 +33,17 @@ jobs:
             exit 0
           fi
 
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
       - name: Commit and push generated layout image
         if: ${{ success() }}
         run: |
-          git add ferris_sweep.png
-          git commit -m "Auto-update generated image"
-          git push
+          if [[ $(git status --porcelain) ]]; then
+            echo "Image changed, committing..."
+            git add ferris_sweep.png
+            git commit -m "Auto-update generated image"
+            git push
+          else
+            echo "No changes to commit."
+            exit 0
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
