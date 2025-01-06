@@ -24,14 +24,10 @@ jobs:
         run: |
           /tmp/zmk-viewer generate -f ./config/splitkb_aurora_sweep.keymap ferris/sweep --single
 
-      - name: Check if the image has changed
+      - name: Configure Git
         run: |
-          if [[ $(git status --porcelain) ]]; then
-            echo "Image changed, committing..."
-          else
-            echo "No changes to commit."
-            exit 0
-          fi
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Commit and push generated layout image
         if: ${{ success() }}
