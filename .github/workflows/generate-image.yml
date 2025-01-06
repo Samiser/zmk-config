@@ -1,0 +1,45 @@
+name: Generate and Commit Layout Image
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  generate-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install executable
+        run: |
+          curl -sL https://raw.githubusercontent.com/MrMarble/zmk-viewer/master/scripts/install.sh | sudo -E bash -
+
+      - name: Run the executable to generate an image
+        run: |
+          /usr/local/bin/zmk-viewer generate -f ./config/splitkb_aurora_sweep.keymap ferris/sweep --single
+
+      - name: Check if the image has changed
+        run: |
+          if [[ $(git status --porcelain) ]]; then
+            echo "Image changed, committing..."
+          else
+            echo "No changes to commit."
+            exit 0
+          fi
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push generated layout image
+        if: ${{ success() }}
+        run: |
+          git add ferris_sweep.png
+          git commit -m "Auto-update generated image"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
