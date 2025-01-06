@@ -28,7 +28,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin ${{ secrets.ssh }}
 
       - name: Commit and push generated layout image
         if: ${{ success() }}
@@ -37,8 +36,8 @@ jobs:
             echo "Image changed, committing..."
             git add ferris_sweep.png
             git commit -m "Auto-update generated image"
-            git fetch origin master
-            git push origin HEAD:master
+            git remote set-url origin https://Samiser:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+            git push origin master
           else
             echo "No changes to commit."
             exit 0
