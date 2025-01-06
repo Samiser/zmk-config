@@ -24,20 +24,16 @@ jobs:
         run: |
           /tmp/zmk-viewer generate -f ./config/splitkb_aurora_sweep.keymap ferris/sweep --single
 
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
       - name: Commit and push generated layout image
         if: ${{ success() }}
         run: |
           if [[ $(git status --porcelain) ]]; then
             echo "Image changed, committing..."
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
             git add ferris_sweep.png
             git commit -m "Auto-update generated image"
-            git remote set-url origin https://Samiser:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-            git push origin master
+            git push
           else
             echo "No changes to commit."
             exit 0
