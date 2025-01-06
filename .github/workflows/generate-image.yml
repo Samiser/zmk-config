@@ -15,6 +15,7 @@ jobs:
 
       - name: Install executable
         run: |
+          cd /tmp
           wget https://github.com/MrMarble/zmk-viewer/releases/download/v2.0.0/zmk-viewer-2.0.0-linux-amd64.tar.gz
           tar -xzvf zmk-viewer-2.0.0-linux-amd64.tar.gz
           mv zmk-viewer-2.0.0-linux-amd64/zmk-viewer-v2.0.0-linux-amd64 /tmp/zmk-viewer
