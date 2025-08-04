@@ -38,7 +38,7 @@
 &kp ESCAPE  &kp UNDER  &kp LBRC  &kp RBRC  &kp GRAVE    &kp PLUS   &kp N7  &kp N8  &kp N9  &none
 &kp TAB     &kp LT     &kp LPAR  &kp RPAR  &kp GT       &kp MINUS  &kp N4  &kp N5  &kp N6  &kp EQUAL
 &mo 3       &kp PIPE   &kp LBKT  &kp RBKT  &kp TILDE    &kp N0     &kp N1  &kp N2  &kp N3  &kp BACKSLASH
-&mo 1       &none                                                                  &none   &mo 4
+&mo 1       &none                                                                  &none   &mo 5
             >;
         };
 
@@ -47,7 +47,7 @@
 &none          &kp AT       &kp QMARK      &kp EXCL  &none            &kp PAGE_UP    &kp CARET  &kp SQT    &kp DOUBLE_QUOTES  &kp HOME
 &kp BACKSPACE  &kp PERCENT  &kp HASH       &kp DLLR  &none            &kp LEFT       &kp DOWN   &kp UP     &kp RIGHT          &kp COLON
 &kp DEL        &caps_word   &kp LC(LS(C))  &none     &kp LC(LS(V))    &kp PAGE_DOWN  &kp AMPS   &kp ASTRK  &kp SEMI           &kp END
-&mo 4          &none                                                                                       &none              &mo 2
+&mo 5          &none                                                                                       &none              &mo 2
             >;
         };
 
@@ -55,8 +55,17 @@
             bindings = <
 &none  &none  &none  &none  &none    &kp F12  &kp F7  &kp F8  &kp F9  &none
 &none  &none  &none  &none  &none    &kp F11  &kp F4  &kp F5  &kp F6  &none
-&none  &none  &none  &none  &none    &kp F10  &kp F1  &kp F2  &kp F3  &none
+&none  &none  &mo 4  &none  &none    &kp F10  &kp F1  &kp F2  &kp F3  &none
 &none  &none                                                  &none   &none
+            >;
+        };
+
+        numpad {
+            bindings = <
+&none  &none  &none  &none  &none    &kp KP_PLUS      &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none
+&none  &none  &none  &none  &none    &kp KP_MINUS     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_EQUAL
+&none  &none  &none  &none  &none    &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none
+&none  &none                                                                            &none            &none
             >;
         };
 
